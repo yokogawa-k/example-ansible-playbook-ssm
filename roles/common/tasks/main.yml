@@ -3,3 +3,6 @@
   apt:
     name: '*'
     state: latest
+    # https://github.com/ansible/ansible/issues/32940
+    # https://github.com/ansible/ansible/pull/33994
+    force_apt_get: yes
