@@ -1,0 +1,40 @@
+# -*- mode: Yaml; -*-
+# vi: set ft=yaml ts=2 sw=2 sts=0 et:
+#
+- name: Create Wheel Group
+  group: name=wheel gid=11 state=present system=yes
+- name: Create DSAS Group
+  group: name=dsas  gid=9000 state=present system=yes
+- name: Create ganglia Group
+  group: name=ganglia gid=9100 state=present system=yes
+- name: Create ganglia User
+  user: name=ganglia uid=9100 group=ganglia createhome=no home=/usr/klab/var/ganglia state=present system=yes
+- name: Create mysql Group
+  group: name=mysql  gid=7011 state=present system=yes
+- name: Create mysql User
+  user: name=mysql uid=7011 group=mysql createhome=no home=/usr/klab/var/mysql state=present system=yes
+- name: Create djbdns Group
+  group: name=djbdns  gid=7041 state=present system=yes
+- name: Create Gdnslog User
+  user: name=Gdnslog uid=7041 group=djbdns createhome=no home=/home/Gdnslog state=present system=yes
+- name: Create redis User
+  group: name=redis  gid=7013 state=present system=yes
+- name: Create redis Group
+  user: name=reids uid=7013 group=redis createhome=no home=/user/klab/var/redis state=present system=yes
+- name: Create logwatcher User
+  group: name=logwatcher  gid=9001 state=present system=yes
+- name: Create logwatcher Group
+  user: name=logwatcher uid=9001 group=logwatcher createhome=no home=/user/klab/var/logwatcher state=present system=yes
+
+- name: Create kg_game34 Group
+  group: name=kg_game34 gid=5985 state=present system=yes
+- name: Create kg_game34 User
+  user: name=kg_game34 uid=5985 group=kg_game34 createhome=no home=/usr/klab/sap/kg_game34/home shell=/bin/bash state=present system=no
+- name: Create ono-ka Group
+  group: name=ono-ka gid=3215 state=present system=yes
+- name: Create ono-ka User
+  user: name=ono-ka uid=3215 group=ono-ka groups=wheel createhome=yes home=/home/ono-ka shell=/bin/bash state=present system=no
+- name: Create yokogawa-k Group
+  group: name=yokogawa-k gid=1223 state=present system=yes
+- name: Create yokogawa-k User
+  user: name=yokogawa-k uid=1223 group=yokogawa-k groups=wheel createhome=yes home=/home/yokogawa-k shell=/bin/bash state=present system=no

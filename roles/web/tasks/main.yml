@@ -1,0 +1,13 @@
+---
+- name: install the latest version of httpd
+  apt:
+    pkg: httpd
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+ 
+- name: httpd service state
+  systemd:
+    name: httpd
+    state: started
+    enabled: yes
